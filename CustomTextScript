@@ -1,0 +1,16 @@
+function enviarScript(text, times, interval){
+    let i = 0;       
+    setInterval(() => { 
+            if( i >= times) return;
+            console.log(i)
+            window.InputEvent = window.Event || window.InputEvent;
+            const event = new InputEvent('input', { bubbles: true });
+            const textbox = document.querySelector('#main div._13NKt');
+            textbox.textContent = text;
+            textbox.dispatchEvent(event);
+            document.querySelector("#main span[data-testid=send]").click();           
+            i++;
+    }, interval)
+}
+
+enviarScript("Texto", 10, 250)
